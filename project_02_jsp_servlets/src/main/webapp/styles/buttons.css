@@ -1,0 +1,48 @@
+@import url("./common.css");
+
+.button-wrap {
+    align-items: center;
+    border-radius: 0.25rem;
+    display: flex;
+    gap: 0.25rem;
+    height: 2rem;
+    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 700;
+    /* background-color and border set in specific button classes */
+}
+
+.button-delete {
+    background-color: var(--red-weak);
+    border: 1px solid var(--red-strong);
+    color: var(--text-light);
+}
+.button-delete:hover {
+    background-color: var(--red-strong);
+    border-color: var(--red-weak);
+}
+
+.button-confirm {
+    background-color: var(--green-weak);
+    border: 1px solid var(--green-strong);
+    color: var(--text-light);
+}
+.button-confirm:hover {
+    background-color: var(--green-strong);
+    border-color: var(--green-weak);
+}
+
+.button-default {
+    background-color: var(--gray-weak);
+    border: 1px solid var(--gray-strong);
+    color: var(--text-dark);
+}
+.button-default:hover {
+    background-color: var(--gray-strong);
+    border-color: var(--gray-weak);
+    color: var(--text-light);
+}

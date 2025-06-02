@@ -1,0 +1,23 @@
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+   http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+  <!-- We can link the servlet classes with these xml configuration -->
+  <!-- However, indicated way is by using anotations, as we do in -->
+  <!-- all the other servlets created in this mini project -->
+  <!-- Hello World Servlet without render JSP -->
+  <servlet>
+    <servlet-name>MyFirstServlet</servlet-name>
+    <servlet-class>org.example.project_02_jsp_servlets.controller.MyFirstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyFirstServlet</servlet-name>
+    <!-- we can use multiple patterns -->
+    <url-pattern>/my-first-servlet</url-pattern>
+    <url-pattern>/hello-world</url-pattern>
+    <url-pattern>*.helloworld</url-pattern>
+  </servlet-mapping>
+
+
+</web-app>

@@ -1,0 +1,34 @@
+volumes:
+  pgdata:
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: my-postgres-for-servlets
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB} -h localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  my-servlet-jsp-app:
+    build: .
+    container_name: my-servlet-jsp-app
+    depends_on:
+      postgres:
+        condition: service_healthy # wait for postgres to be healthy
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    restart: unless-stopped

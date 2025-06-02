@@ -1,0 +1,22 @@
+@import url("./common.css");
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    padding-block: 2vh;
+    min-width: 100vw;
+    height: 10vh;
+    background-color: var(--blue-bg);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    padding-top: 10vh;
+}
